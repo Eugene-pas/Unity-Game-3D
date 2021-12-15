@@ -65,10 +65,12 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private bool isInspecting;
 
 	//How much ammo is currently left
-	private int currentAmmo;
+	public int currentAmmo = 30;
 	//Totalt amount of ammo
 	[Tooltip("How much ammo the weapon should have.")]
 	public int ammo;
+	[Tooltip("what weapon do you want to have?")]
+	
 	//Check if out of ammo
 	private bool outOfAmmo;
 
@@ -161,14 +163,17 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		
 		//Set the animator component
 		anim = GetComponent<Animator>();
-		//Set current ammo to total ammo value
-		currentAmmo = ammo;
-
+		
 		muzzleflashLight.enabled = false;
 	}
-
-	private void Start () {
-		
+	private GameObject[] weapons = new GameObject[2];
+	private Weapons weaponsAmmo;
+	private void Start ()
+	{
+		weaponsAmmo = GameObject.FindWithTag("Player").GetComponent<Weapons>();
+		weaponsAmmo.ammo = ammo;
+		weapons = GameObject.FindWithTag("Player").GetComponent<Weapons>().GetGameWeapons();
+		weapons[1].SetActive(false);
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		//Get weapon name from string to text
@@ -203,9 +208,12 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 					initialSwayPosition, Time.deltaTime * swaySmoothValue);
 		}
 	}
-	
-	private void Update () {
 
+	
+	private void Update ()
+	{
+		ammo = weaponsAmmo.ammo;
+		totalAmmoText.text = ammo.ToString();
 		//Aiming
 		//Toggle camera FOV when right click is held down
 		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting) 
@@ -246,32 +254,42 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		{
 			randomMuzzleflashValue = Random.Range (minRandomValue, maxRandomValue);
 		}
-
+		
+		//Chenge gans
+		if (Input.GetKeyDown (KeyCode.Alpha1))
+		{
+			weapons[1].transform.position = weapons[0].transform.position;
+			weapons[1].transform.rotation = weapons[0].transform.rotation;
+			weapons[0].SetActive(false);
+			weapons[1].SetActive(true);
+			weapons[1].GetComponent<AutomaticGunScriptLPFP>().ammo = weaponsAmmo.ammo;
+		}
+		
 		//Timescale settings
 		//Change timescale to normal when 1 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha1)) 
-		{
-			Time.timeScale = 1.0f;
-			timescaleText.text = "1.0";
-		}
-		//Change timesccale to 50% when 2 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha2)) 
-		{
-			Time.timeScale = 0.5f;
-			timescaleText.text = "0.5";
-		}
-		//Change timescale to 25% when 3 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha3)) 
-		{
-			Time.timeScale = 0.25f;
-			timescaleText.text = "0.25";
-		}
-		//Change timescale to 10% when 4 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha4)) 
-		{
-			Time.timeScale = 0.1f;
-			timescaleText.text = "0.1";
-		}
+		// if (Input.GetKeyDown (KeyCode.Alpha1)) 
+		// {
+		// 	Time.timeScale = 1.0f;
+		// 	timescaleText.text = "1.0";
+		// }
+		// //Change timesccale to 50% when 2 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha2)) 
+		// {
+		// 	Time.timeScale = 0.5f;
+		// 	timescaleText.text = "0.5";
+		// }
+		// //Change timescale to 25% when 3 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha3)) 
+		// {
+		// 	Time.timeScale = 0.25f;
+		// 	timescaleText.text = "0.25";
+		// }
+		// //Change timescale to 10% when 4 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha4)) 
+		// {
+		// 	Time.timeScale = 0.1f;
+		// 	timescaleText.text = "0.1";
+		// }
 		//Pause game when 5 key is pressed
 		if (Input.GetKeyDown (KeyCode.Alpha5)) 
 		{
@@ -306,7 +324,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		}
 
 		//If out of ammo
-		if (currentAmmo == 0) 
+		if (currentAmmo <= 0 && ammo > 0) 
 		{
 			//Show out of ammo text
 			currentWeaponText.text = "OUT OF AMMO";
@@ -329,6 +347,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			
 		//AUtomatic fire
 		//Left click hold 
+		if(currentAmmo > 0)
 		if (Input.GetMouseButton (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning) 
 		{
 			//Shoot automatic
@@ -455,10 +474,11 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		}
 
 		//Reload 
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting)
 		{
 			//Reload
 			Reload ();
+			totalAmmoText.text = ammo.ToString();
 		}
 
 		//Walking when pressing down WASD keys
@@ -489,6 +509,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		{
 			anim.SetBool ("Run", false);
 		}
+		weaponsAmmo.ammo = ammo;
 	}
 
 	private IEnumerator GrenadeSpawnDelay () {
@@ -530,8 +551,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	//Reload
 	private void Reload () {
-		
-		if (outOfAmmo == true) 
+		if(currentAmmo < 30 && ammo > 0)
+		{
+			if (outOfAmmo == true) 
 		{
 			//Play diff anim if out of ammo
 			anim.Play ("Reload Out Of Ammo", 0, 0f);
@@ -566,8 +588,22 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 		}
 		//Restore ammo when reloading
-		currentAmmo = ammo;
+		if (ammo >= 30)
+		{
+			
+			if (ammo == 30)
+				ammo = 0;
+			else
+				ammo = ammo - (30 - currentAmmo);
+			currentAmmo = 30;
+		}
+		else
+		{
+			currentAmmo = ammo;
+			ammo = 0;
+		}
 		outOfAmmo = false;
+		}
 	}
 
 	//Enable bullet in mag renderer after set amount of time
@@ -611,4 +647,5 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			isInspecting = false;
 		}
 	}
+	
 }

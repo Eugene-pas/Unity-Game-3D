@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ammo
+  - Weapon
+  - Pistol
+  - Automaton
+  - DopCamera
+  - Bullet
+  - AmmoPistol
+  - FirstAidRed
   layers:
   - Default
   - TransparentFX

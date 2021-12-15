@@ -69,9 +69,11 @@ namespace FPSControllerLPFP
         private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
         private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
 
+        private Weapons _weapons;
         /// Initializes the FpsController on start.
         private void Start()
         {
+            _weapons = GameObject.FindWithTag("Player").GetComponent<Weapons>();
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
             _collider = GetComponent<CapsuleCollider>();
@@ -374,6 +376,21 @@ namespace FPSControllerLPFP
             public bool Jump
             {
                 get { return Input.GetButtonDown(jump); }
+            }
+            
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Ammo"))
+            {
+                Destroy(other.gameObject);
+                _weapons.ammo += 30;
+            }
+            if (other.gameObject.CompareTag("AmmoPistol"))
+            {
+                Destroy(other.gameObject);
+                _weapons.ammoPistol += 30;
             }
         }
     }
