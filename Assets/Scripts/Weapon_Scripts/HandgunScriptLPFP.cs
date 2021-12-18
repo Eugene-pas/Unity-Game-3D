@@ -154,7 +154,6 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	public soundClips SoundClips;
 
 	private bool soundHasPlayed = false;
-
 	private void Awake () 
 	{
 		//Set the animator component
@@ -163,10 +162,13 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 		muzzleflashLight.enabled = false;
 	}
+
+
 	private GameObject[] weapons;
 	private Weapons weaponsAmmo;
 	private void Start ()
 	{
+		
 		weaponsAmmo = GameObject.FindWithTag("Player").GetComponent<Weapons>();
 		weaponsAmmo.ammoPistol = ammo;
 		weapons = GameObject.FindWithTag("Player").GetComponent<Weapons>().GetGameWeapons();
@@ -204,7 +206,9 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		}
 	}
 	
-	private void Update () {
+	private void Update ()
+	{
+		
 		ammo = weaponsAmmo.ammoPistol;
 		totalAmmoText.text = ammo.ToString();
 		//Aiming
@@ -276,11 +280,12 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		// 	Time.timeScale = 0.1f;
 		// 	timescaleText.text = "0.1";
 		// }
-		// //Pause game when 5 key is pressed
-		// if (Input.GetKeyDown (KeyCode.Alpha5)) 
+		//Pause game when 5 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Escape)) 
 		// {
 		// 	Time.timeScale = 0.0f;
 		// 	timescaleText.text = "0.0";
+		// 	
 		// }
 
 		//Set current ammo text from ammo int
@@ -338,7 +343,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		}
 
 		//Shooting 
-		if (Input.GetMouseButtonDown (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning) 
+		if (Input.GetMouseButtonDown (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning && Time.timeScale > 0) 
 		{
 			anim.Play ("Fire", 0, 0f);
 	
@@ -447,7 +452,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		}
 
 		//Reload 
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting && Time.timeScale > 0) 
 		{
 			//Reload
 			Reload ();
@@ -536,8 +541,23 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			}
 		} 
 		//Restore ammo when reloading
-		currentAmmo = ammo;
+		if (ammo >= 9)
+		{
+			
+			if (ammo == 9)
+				ammo = 0;
+			else
+				ammo = ammo - (9 - currentAmmo);
+			currentAmmo = 9;
+		}
+		else
+		{
+			currentAmmo = ammo;
+			ammo = 0;
+		}
 		outOfAmmo = false;
+		
+	
 	}
 
 	//Reload

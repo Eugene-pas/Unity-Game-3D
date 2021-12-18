@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FPSControllerLPFP
 {
@@ -68,11 +69,16 @@ namespace FPSControllerLPFP
 
         private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
         private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
-
+        private float health;
         private Weapons _weapons;
+        [Header("Text Settings")]
+        public Text textHealth;
+        public Text textDied;
         /// Initializes the FpsController on start.
         private void Start()
         {
+            health = GameObject.FindWithTag("Player").GetComponent<Weapons>().health;
+            textHealth.text = health.ToString();
             _weapons = GameObject.FindWithTag("Player").GetComponent<Weapons>();
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
@@ -146,6 +152,18 @@ namespace FPSControllerLPFP
         /// Moves the camera to the character, processes jumping and plays sounds every frame.
         private void Update()
         {
+            textHealth.text = "+" + health.ToString();
+            if (health <= 0)
+            {
+                textDied.transform.position = new Vector3(768,textDied.transform.position.y,textDied.transform.position.z);
+                textHealth.text = "+0";
+                Time.timeScale = 0;
+            }
+
+            if (health <= 25)
+            {
+                textHealth.color = Color.red;
+            }
 			arms.position = transform.position + transform.TransformVector(armPosition);
             Jump();
             PlayFootstepSounds();
@@ -391,6 +409,19 @@ namespace FPSControllerLPFP
             {
                 Destroy(other.gameObject);
                 _weapons.ammoPistol += 30;
+            }
+
+            if (other.gameObject.CompareTag("EnemyBullet"))
+            {
+                health -= 15;
+            }
+            if (other.gameObject.CompareTag("FirstAidRed"))
+            {
+                if (health <= 50)
+                    health += 50;
+                else health = 100;
+                textHealth.color = Color.white;
+                Destroy(other.gameObject);
             }
         }
     }

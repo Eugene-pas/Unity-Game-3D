@@ -166,6 +166,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		
 		muzzleflashLight.enabled = false;
 	}
+	
 	private GameObject[] weapons = new GameObject[2];
 	private Weapons weaponsAmmo;
 	private void Start ()
@@ -347,7 +348,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			
 		//AUtomatic fire
 		//Left click hold 
-		if(currentAmmo > 0)
+		if(currentAmmo > 0 && Time.timeScale > 0)
 		if (Input.GetMouseButton (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning) 
 		{
 			//Shoot automatic
@@ -474,7 +475,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		}
 
 		//Reload 
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting)
+		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting && Time.timeScale > 0)
 		{
 			//Reload
 			Reload ();

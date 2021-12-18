@@ -6,14 +6,52 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0995df-c3cb-43cf-8e66-aac78afa9299" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity-Game-3D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity-Game-3D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Demo_Scene_Components.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Bullet_Materials/Bullet_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Bullet_Materials/Bullet_Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Polygonal Metalon/Animators/Polygonal Metalon.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polygonal Metalon/Animators/Polygonal Metalon.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Polygonal Metalon/Materials/Polygonal Metalon Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polygonal Metalon/Materials/Polygonal Metalon Red.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefbs/Example_Prefabs/Projectiles/Bullet/Bullet_Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefbs/Example_Prefabs/Projectiles/Bullet/Bullet_Prefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefbs/Models_Only/Mags/Assault_Rifle_01_Mag_Full.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefbs/Models_Only/Mags/Assault_Rifle_01_Mag_Full.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefbs/Models_Only/Mags/Handgun_01_Mag_Full.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefbs/Models_Only/Mags/Handgun_01_Mag_Full.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/BulletScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/BulletScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/FPSController/FpsControllerLPFP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FPSController/FpsControllerLPFP.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon_Scripts/AutomaticGunScriptLPFP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon_Scripts/AutomaticGunScriptLPFP.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon_Scripts/HandgunScriptLPFP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon_Scripts/HandgunScriptLPFP.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon_Scripts/Weapons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon_Scripts/Weapons.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Black.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Black.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Floor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Floor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/GhoulMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/GhoulMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/GhoulScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/GhoulScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/GhoulSceneSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/GhoulSceneSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_color.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_color.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_nmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/Ghoul_Volume4_nmap.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/New Animation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/New Animation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/PPS_Ghoul.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_GhoulZombie/PPS_Ghoul.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -30,6 +68,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8d3a4cbacdae45b384e0e80b376938e13600/e0/e47ef34b/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon_Scripts/Weapons.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d962c48d73ca455889390bf9d50d28ad6600/c1/98eda7eb/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AssetStoreOriginals/_SNAPS_Tools/AssetSwapTool/Scripts/SwapTool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cfc1ad890650411e946cff2e6f27671113b400/9b/3c2bc6e3/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/BaseRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
@@ -102,7 +141,13 @@
       <workItem from="1639318816915" duration="1195000" />
       <workItem from="1639334979988" duration="5056000" />
       <workItem from="1639343194703" duration="5081000" />
-      <workItem from="1639594017813" duration="7270000" />
+      <workItem from="1639594017813" duration="8118000" />
+      <workItem from="1639658470839" duration="7192000" />
+      <workItem from="1639757129870" duration="16417000" />
+      <workItem from="1639782444942" duration="10822000" />
+      <workItem from="1639797293507" duration="5603000" />
+      <workItem from="1639817630414" duration="12000" />
+      <workItem from="1639817996813" duration="97000" />
     </task>
     <servers />
   </component>

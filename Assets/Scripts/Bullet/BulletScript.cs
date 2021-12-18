@@ -17,6 +17,7 @@ public class BulletScript : MonoBehaviour {
 	[Header("Impact Effect Prefabs")]
 	public Transform [] metalImpactPrefabs;
 
+	
 	private void Start () 
 	{
 		//Start destroy timer
@@ -53,10 +54,11 @@ public class BulletScript : MonoBehaviour {
 		if (collision.transform.tag == "Target") 
 		{
 			//Toggle "isHit" on target object
-			collision.transform.gameObject.GetComponent
-				<TargetScript>().isHit = true;
+			if(collision.transform.gameObject.GetComponent<TargetScript>() != null )
+				collision.transform.gameObject.GetComponent<TargetScript>().isHit = true;
+			
 			//Destroy bullet object
-			Destroy(gameObject);
+			//Destroy(gameObject);
 		}
 			
 		//If bullet collides with "ExplosiveBarrel" tag
